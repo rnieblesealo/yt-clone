@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 
 // We will get a POST request from Pub/Sub message from GCS; refer to that documentation to know why we're handling things this way
-app.post("/process-video", async (req, res) => {
+app.post("/process-video", async (req: any, res: any) => {
   let data;
   try {
     const message = Buffer.from(req.body.message.data, "base64").toString("utf8");
